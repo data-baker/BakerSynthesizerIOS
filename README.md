@@ -48,7 +48,8 @@
 |setAudioType|	返回数据文件格式	|否	|"可不填，不填时默认为4audiotype=4 ：返回16K采样率的pcm格式audiotype=5 ：返回8K采样率的pcm格式audiotype=6 ：返回16K采样率的wav格式  audiotype=6&rate=1 ：返回8K的wav格式"|
 |setEnableTimestamp	|是否返回时间戳内容	|否	|设置是否返回时间戳内容。true=支持返回，false=不需要返回。不设置默认为false不返回。|
 
-###4.2 BakerCallback 回调类方法说明
+### 4.2 BakerCallback 回调类方法说明
+
 | 参数 | 参数名称 |说明|
 |--------|--------|--------|
 |onSynthesisStarted	|开始合成	|开始合成|
