@@ -1,7 +1,7 @@
 # 标贝科技语音合成服务iOS SDK使用说明文档（2.0）
 
-
 [TOC]
+
 
 
 ## 1.XCode集成Framework（参考demo） 
