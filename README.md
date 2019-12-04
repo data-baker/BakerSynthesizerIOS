@@ -1,10 +1,11 @@
-#标贝科技语音合成服务iOS SDK使用说明文档（2.0）
+# 标贝科技语音合成服务iOS SDK使用说明文档（2.0）
+
 [toc]
-##1.XCode集成Framework（参考demo） 
+
+## 1.XCode集成Framework（参考demo） 
 
 
 1. 将framework添加到项目project的目录下面。
-
 1. 在viewController中引用SDK的头文件；
 1. 实现DBSynthesizerDelegate的代理。
 ```
@@ -12,7 +13,7 @@
 ``` 
 1. 在代理的回调中处理相关的逻辑，回传数据或者处理异常;
 
-##2.SDK关键类
+## 2.SDK关键类
 
 1. DBSynthesizerManager：语音合成关键业务处理类，全局只需一个实例即可,并且需要注册自己为该类的回调对象；
 
