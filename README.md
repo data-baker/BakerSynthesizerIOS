@@ -1,6 +1,8 @@
 # 标贝科技语音合成服务iOS SDK使用说明文档（2.0）
 
-[toc]
+
+[TOC]
+
 
 ## 1.XCode集成Framework（参考demo） 
 
@@ -20,7 +22,7 @@
 2. DBSynthesizerRequestParam：设置合成需要的相关参数，按照如下的接口文档设置即可；
 3. DBFailureModel：请求异常的回调类，包含错误码，错误信息，和错误的trace_id。
 
-##3.调用顺序
+## 3.调用顺序
 1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例。
 1. 注册成为DBSynthesizerDelegate的回调者。
 1. 设置DBSynthesizerRequestParam合成参数，包括必填参数和非必填参数
@@ -29,11 +31,10 @@
 1. 如果需要发起新的请求，可以重复第3-5步。
 1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop()结束websocket服务，释放资源。
 
-##4.参数说明
+## 4.参数说明
 ### 4.1基本参数说明
-
 | 参数 | 参数名称 |是否必填|说明|
-|--------|--------|
+|--------|--------|--------|--------|
 |  clientId  |  clientId | 是|初始化sdk的clientId    |
 |clientSecret|	clientSecret|	是|	初始化sdk的clientSecret|
 |setText	|合成文本	|是	|设置要转为语音的合成文本|
@@ -49,7 +50,7 @@
 
 ###4.2 BakerCallback 回调类方法说明
 | 参数 | 参数名称 |说明|
-|--------|--------|
+|--------|--------|--------|
 |onSynthesisStarted	|开始合成	|开始合成|
 |onBinaryReceived|流式持续返回数据的接口回调|idx  数据块序列号，请求内容会以流式的数据块方式返回给客户端。服务器端生成，从1递增。data 合成的音频数据;audioType  音频类型，如pcm、wav。interval  音频interval信息，可能为空。endFlag  是否时最后一个数据块，false：否，true：是。|
 |onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
@@ -58,7 +59,7 @@
 ###4.3失败时返回的code对应表
 #### 4.3.1失败时返回的msg格式
 | 参数 | 类型 |描述|
-|--------|--------|
+|--------|--------|--------|
 |code	|int	|错误码9xxxx表示SDK相关错误，1xxxx参数相关错误，2xxxx合成引擎相关错误，3xxxx授权及其他错误|
 |message	|string|	错误描述|
 |trace_id	|string	|引擎内部合成任务id|
