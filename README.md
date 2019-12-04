@@ -1,8 +1,5 @@
 # 标贝科技语音合成服务iOS SDK使用说明文档（2.0）
 
-[TOC]
-
-
 
 ## 1.XCode集成Framework（参考demo） 
 
@@ -57,7 +54,7 @@
 |onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
 |onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
 
-###4.3失败时返回的code对应表
+### 4.3失败时返回的code对应表
 #### 4.3.1失败时返回的msg格式
 | 参数 | 类型 |描述|
 |--------|--------|--------|
