@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kjM-FS-1Dt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="139"/>
+        </scene>
+        <!--在线tts合成-->
+        <scene sceneID="oE7-6o-ahz">
+            <objects>
+                <viewController title="在线tts合成" id="kjM-FS-1Dt" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cNZ-4r-0KO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dtf-V8-Crs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tii-vp-09Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LIV-LW-QPC">
+                                <rect key="frame" x="130" y="331" width="153" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlQ-HM-0oD">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
+                                        <state key="normal" title="开始"/>
+                                        <connections>
+                                            <action selector="startAction:" destination="kjM-FS-1Dt" eventType="touchUpInside" id="V26-SW-FXq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL7-gs-zEV">
+                                        <rect key="frame" x="122" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="停止"/>
+                                        <connections>
+                                            <action selector="closeAction:" destination="kjM-FS-1Dt" eventType="touchUpInside" id="hJQ-jA-x8r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="abh-vo-JNk"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Uu-cz-Qc9">
+                                <rect key="frame" x="41" y="63" width="321" height="197"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="197" id="vng-xo-gx4"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kjM-FS-1Dt" id="b6N-nL-ivj"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LIV-LW-QPC" firstAttribute="leading" secondItem="1hm-Gp-k4O" secondAttribute="leading" constant="130" id="3ev-KW-ZaW"/>
+                            <constraint firstItem="1hm-Gp-k4O" firstAttribute="trailing" secondItem="0Uu-cz-Qc9" secondAttribute="trailing" constant="52" id="84O-xi-tLW"/>
+                            <constraint firstItem="0Uu-cz-Qc9" firstAttribute="leading" secondItem="1hm-Gp-k4O" secondAttribute="leading" constant="41" id="BAE-64-97j"/>
+                            <constraint firstItem="1hm-Gp-k4O" firstAttribute="trailing" secondItem="LIV-LW-QPC" secondAttribute="trailing" constant="131" id="Mfa-YB-0Mn"/>
+                            <constraint firstItem="0Uu-cz-Qc9" firstAttribute="top" secondItem="cNZ-4r-0KO" secondAttribute="bottom" constant="19" id="txx-CV-9Pn"/>
+                            <constraint firstItem="LIV-LW-QPC" firstAttribute="top" secondItem="0Uu-cz-Qc9" secondAttribute="bottom" constant="71" id="yjN-pf-XQ1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1hm-Gp-k4O"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="在线" image="person.fill" catalog="system" selectedImage="person.fill" id="Yoe-ky-13y"/>
+                    <navigationItem key="navigationItem" id="1FM-qA-77X"/>
+                    <connections>
+                        <outlet property="textView" destination="0Uu-cz-Qc9" id="HFn-uH-MxJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPw-di-xTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3200.0000000000005" y="17.410714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>
