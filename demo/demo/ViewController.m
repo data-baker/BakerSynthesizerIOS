@@ -42,8 +42,10 @@ static NSString * textViewText = @"你好啊，这是默认要合成的文本。
     [self addBorderOfView:self.tableView];
     [self addBorderOfView:self.textView];
     self.textView.text = textViewText;
+    _synthesizerManager = [DBSynthesizerManager instance];
+    _synthesizerManager.delegate = self;
     // 请联系标贝公司获取
-    [self.synthesizerManager setupClientId:@"" clientSecret:@""];
+  [self.synthesizerManager setupClientId:@"" clientSecret:@""];
 }
 
 // MARK: IBActions
@@ -59,9 +61,6 @@ static NSString * textViewText = @"你好啊，这是默认要合成的文本。
     }
     _nlsAudioPlayer = [[NLSPlayAudio alloc]init];
     _nlsAudioPlayer.delegate = self;
-    
-    
-    
     // 设置合成参数
     
     if (_synthesizerPara != NULL) {
@@ -140,21 +139,5 @@ static NSString * textViewText = @"你好啊，这是默认要合成的文本。
 }
 
 
-// MARK: - custom Accessor -
-
-- (DBSynthesizerManager *)synthesizerManager {
-    if (!_synthesizerManager) {
-        _synthesizerManager = [DBSynthesizerManager instance];
-        _synthesizerManager.delegate = self;
-    }
-    return _synthesizerManager;
-}
-
-- (DBSynthesizerRequestParam *)synthesizerPara {
-    if (!_synthesizerPara) {
-       
-    }
-    return _synthesizerPara;
-}
 
 @end
