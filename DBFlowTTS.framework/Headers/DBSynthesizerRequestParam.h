@@ -37,19 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///  根据类型指定audioType
 @property(nonatomic,assign)DBTTSAudioType audioType;
 
-/// 可不填，不填时默认为2，取值范围1-8，2以上的值仅针对返回MP3格式，
-@property(nonatomic,assign)DBTTSRate  rate;
 
-
-/// 设置是否返回时间戳内容。true=支持返回，false=不需要返回。不设置默认为false不返回。
-@property(nonatomic,assign)BOOL  enableTimestamp;
-
-/// 私有化部署的服务器url地址。
-@property(nonatomic,copy)NSString * url;
-
-
-
-
+///// 私有化部署的服务器url地址。
+//@property(nonatomic,copy)NSString * url;
 
 
 @end
