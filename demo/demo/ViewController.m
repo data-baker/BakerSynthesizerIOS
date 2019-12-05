@@ -45,9 +45,7 @@ static NSString * textViewText = @"你好啊，这是默认要合成的文本。
     _synthesizerManager = [DBSynthesizerManager instance];
     _synthesizerManager.delegate = self;
     // 请联系标贝公司获取
-    [self.synthesizerManager setupClientId:@"e2d17fce-f69a-4b78-bbe5-7fef824a77c2" clientSecret:@"ZTZlOTMyMzAtMThlZS00M2ZjLWJhMTktYTQ2NjBhZTE3Yzk0"];
-
-//    [self.synthesizerManager setupClientId:@"" clientSecret:@""];
+  [self.synthesizerManager setupClientId:@"" clientSecret:@""];
 }
 
 // MARK: IBActions
