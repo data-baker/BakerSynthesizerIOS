@@ -18,13 +18,6 @@ typedef NS_ENUM(NSUInteger, DBTTSAudioType){
 typedef NS_ENUM(NSUInteger, DBTTSRate) {
     DBTTSRate8k = 1,
     DBTTSRate16k,
-    DBTTSRate24k,
-    DBTTSRate32k,
-    DBTTSRate40k,
-    DBTTSRate48k,
-    DBTTSRate56k,
-    DBTTSRate64k
-    
 };
 
 typedef NS_ENUM(NSUInteger,DBlanguageType) {
