@@ -37,7 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///  根据类型指定audioType
 @property(nonatomic,assign)DBTTSAudioType audioType;
 
-
 ///// 私有化部署的服务器url地址。
 //@property(nonatomic,copy)NSString * url;
 
