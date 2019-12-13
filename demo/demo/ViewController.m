@@ -16,6 +16,7 @@ const  NSInteger temPacket = 3200;
 
 static NSString * textViewText = @"你好啊，这是默认要合成的文本。";
 
+
 @interface ViewController ()<DBSynthesizerDelegate,UITextViewDelegate,NLSPlayAudioDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -46,6 +47,7 @@ static NSString * textViewText = @"你好啊，这是默认要合成的文本。
     _synthesizerManager.delegate = self;
     //TODO: 请联系标贝公司获取ClientId，和clientSecret
   [self.synthesizerManager setupClientId:@"" clientSecret:@""];
+
 }
 
 // MARK: IBActions
