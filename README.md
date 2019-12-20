@@ -18,9 +18,9 @@
  // 设置播放器
     _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
     _synthesisDataPlayer.delegate = self;
-    // 合成器持有播放器实例
     self.synthesizerManager.synthesisDataPlayer = self.synthesisDataPlayer;
-    ``` 
+
+```
 4.在代理的回调中处理相关的逻辑，播放控制或数据相关;
 
 ## 2.SDK关键类
