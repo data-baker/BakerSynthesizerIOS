@@ -12,7 +12,7 @@
 ```
 
 1. 实例化DBSynthesisPlayer相关：
-把实例化对象传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后再代理方法中处理播放器的相关状态；
+先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
 
 ```
  // 设置播放器
@@ -26,14 +26,14 @@
 ## 2.SDK关键类
 
 1. DBSynthesizerManager.h：语音合成关键业务处理类，全局只需一个实例即可,并且需要注册自己为该类的回调对象；
-1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调,**（如果使用该player需要将该player赋值给DBSynthesizerManager的实例持有）**
+1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调,**（如果要使用该player需要将该player赋值给DBSynthesizerManager的实例持有；如果不使用该player那么不需要实例化该类，直接使用DBSynthesizerManager进行合成即可，不会带来播放器相关的开销）**
 1. DBSynthesizerRequestParam.h：设置合成需要的相关参数，按照如下的接口文档设置即可；
 1. DBFailureModel.h：请求异常的回调类，包含错误码，错误信息，和错误的trace_id。
 1. DBTTSEnumerate.h：sdk全局的枚举类；
 
 ## 3.调用说明
 1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例。
-1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不设置该player，那么回调播放器相关的逻辑将不会执行,不会带来播放器相关的开销）**
+1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不设置该player，那么回调播放器相关的逻辑将不会执行,这时候只需处理合成相关的回调，即DBSynthesizerManager的回调）**
 1. 设置DBSynthesizerRequestParam合成参数，包括必填参数和非必填参数
 1. 调用DBSynthesizerManager.start()方法开始与云端服务连接；
 1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；
@@ -42,9 +42,9 @@
 播放器说明：
 属性：
 
-/// 设置audioType类型，默认为DBTTSAudioTypePCM16K
+/// 设置audioType类型，默认为DBTTSAudioTypePCM16K,无需设置，会和设置合成参数的audioType保持一致
 @property(nonatomic,assign)DBTTSAudioType  audioType;
-/// 合成播放器的回调
+/// 合成播放器的回调者
 @property(nonatomic,weak)id <DBSynthesisPlayerDelegate> delegate;
 /// 当前的播放进度
 @property(nonatomic,assign,readonly)NSInteger currentPlayPosition;
@@ -77,12 +77,13 @@
 |setAudioType|	返回数据文件格式	|否	|"可不填，不填时默认为4audiotype=4 ：返回16K采样率的pcm格式audiotype=5 ：返回8K采样率的pcm格式 |
 
 
-### 4.2 BakerCallback 回调类方法说明
+### 4.2 DBSynthesizerDelegate 回调类方法说明
+(如果使用播放功能，可以不处理该协议，播放器的delegate会回调相关数据)
 
 | 参数 | 参数名称 |说明|
 |--------|--------|--------|
 |onSynthesisStarted	|开始合成	|开始合成|
-|onBinaryReceived|流式持续返回数据的接口回调|idx  数据块序列号，请求内容会以流式的数据块方式返回给客户端。服务器端生成，从1递增。data 合成的音频数据;audioType  音频类型，如pcm、wav。interval  音频interval信息，可能为空。endFlag  是否时最后一个数据块，false：否，true：是。|
+|onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
 |onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
 |onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
 
@@ -90,16 +91,15 @@
 
 | 参数 | 参数名称 |说明|
 |--------|--------|--------|
-|onSynthesisStarted	|开始合成	|开始合成|
-|onBinaryReceived|流式持续返回数据的接口回调|idx  数据块序列号，请求内容会以流式的数据块方式返回给客户端。服务器端生成，从1递增。data 合成的音频数据;audioType  音频类型，如pcm、wav。interval  音频interval信息，可能为空。endFlag  是否时最后一个数据块，false：否，true：是。|
-|onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
-|onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
 |readlyToPlay|	播放器准备就绪	|此时可以通过播放器的start方法进行播放|
 |playFinished|	播放完成|	播放结束回调|
 |playPausedIfNeed|	播放暂停|	播放暂停回调|
 |playResumeIfNeed|	播放继续|	播放继续回调|
 |updateBufferPositon|	更新播放buffer进度|	更新播放器buffer进度回调|
-
+|onSynthesisStarted	|开始合成	|开始合成|
+|onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
+|onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
+|onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
 
 ### 4.4失败时返回的code对应表
 #### 4.4.1失败时返回的msg格式
