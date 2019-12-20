@@ -22,14 +22,14 @@
 ## 2.SDK关键类
 
 1. DBSynthesizerManager.h：语音合成关键业务处理类，全局只需一个实例即可,并且需要注册自己为该类的回调对象；
-1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调,（如果使用该player需要将该player赋值给DBSynthesizerManager的实例持有）
+1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调,**（如果使用该player需要将该player赋值给DBSynthesizerManager的实例持有）**
 1. DBSynthesizerRequestParam.h：设置合成需要的相关参数，按照如下的接口文档设置即可；
 1. DBFailureModel.h：请求异常的回调类，包含错误码，错误信息，和错误的trace_id。
 1. DBTTSEnumerate.h：sdk全局的枚举类；
 
 ## 3.调用说明
 1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例。
-1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；（如果不设置该player，那么回调播放器相关的逻辑将不会执行,可以通过合成的回调协议，只处理合成相关的回调状态）
+1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不设置该player，那么回调播放器相关的逻辑将不会执行,不会带来播放器相关的开销）**
 1. 设置DBSynthesizerRequestParam合成参数，包括必填参数和非必填参数
 1. 调用DBSynthesizerManager.start()方法开始与云端服务连接；
 1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；
