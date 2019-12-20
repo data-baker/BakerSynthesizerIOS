@@ -5,19 +5,23 @@
 
 
 1. 将framework添加到项目project的目录下面。
-2. 在viewController中引用SDK的头文件；
-
+1. 在viewController中引用SDK的头文件；
 ```
 #import <DBFlowTTS/DBSynthesizerManager.h>// 合成器的头文件
 #import <DBFlowTTS/DBSynthesisPlayer.h> //合成播放器的头文件
 ```
 
-3. 实例化DBSynthesisPlayer相关：
+1. 实例化DBSynthesisPlayer相关：
+把实例化对象传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后再代理方法中处理播放器的相关状态；
 
 ```
-     _synthesizerManager.delegate = self;
-``` 
-4. 在代理的回调中处理相关的逻辑，回传数据或者处理异常;
+ // 设置播放器
+    _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
+    _synthesisDataPlayer.delegate = self;
+    // 合成器持有播放器实例
+    self.synthesizerManager.synthesisDataPlayer = self.synthesisDataPlayer;
+    ``` 
+4.在代理的回调中处理相关的逻辑，播放控制或数据相关;
 
 ## 2.SDK关键类
 
@@ -90,22 +94,22 @@
 |onBinaryReceived|流式持续返回数据的接口回调|idx  数据块序列号，请求内容会以流式的数据块方式返回给客户端。服务器端生成，从1递增。data 合成的音频数据;audioType  音频类型，如pcm、wav。interval  音频interval信息，可能为空。endFlag  是否时最后一个数据块，false：否，true：是。|
 |onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
 |onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
-|readlyToPlay|	播放器准备就绪	|此时可以调起播放器进行播放|
+|readlyToPlay|	播放器准备就绪	|此时可以通过播放器的start方法进行播放|
 |playFinished|	播放完成|	播放结束回调|
 |playPausedIfNeed|	播放暂停|	播放暂停回调|
 |playResumeIfNeed|	播放继续|	播放继续回调|
 |updateBufferPositon|	更新播放buffer进度|	更新播放器buffer进度回调|
 
 
-### 4.3失败时返回的code对应表
-#### 4.3.1失败时返回的msg格式
+### 4.4失败时返回的code对应表
+#### 4.4.1失败时返回的msg格式
 | 参数 | 类型 |描述|
 |--------|--------|--------|
 |code	|int	|错误码9xxxx表示SDK相关错误，1xxxx参数相关错误，2xxxx合成引擎相关错误，3xxxx授权及其他错误|
 |message	|string|	错误描述|
 |trace_id	|string	|引擎内部合成任务id|
 
-#### 4.3.2 对应code值：
+#### 4.4.2 对应code值：
 | 错误码 | 含义 |
 |--------|--------|
 |90001	|合成SDK初始化失败|
