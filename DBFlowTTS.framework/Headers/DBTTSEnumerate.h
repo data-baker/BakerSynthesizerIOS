@@ -31,6 +31,7 @@ typedef NS_ENUM(NSUInteger,DBErrorFailedCode) {
     DBErrorFailedCodeParameters = 90003, // 参数格式错误
     DBErrorFailedCodeResultParse = 90004, // 返回结果解析错误
     DBErrorFailedCodeSynthesis = 90005, // 合成失败，失败信息相关错误
+    DBPlayerError = 90006, // 播放器相关错误
     //**********服务端返回的错误*********//
     DBErrorFailedCodeAccessToken = 10001, // access_token参数获取失败或未传输
     DBErrorFailedCodeDomin = 10002, //domain参数值错误

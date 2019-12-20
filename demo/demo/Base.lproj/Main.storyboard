@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kjM-FS-1Dt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kee-qs-vUq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,87 +8,118 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="139"/>
-        </scene>
         <!--在线tts合成-->
-        <scene sceneID="oE7-6o-ahz">
+        <scene sceneID="IyA-i8-ihX">
             <objects>
-                <viewController title="在线tts合成" id="kjM-FS-1Dt" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="在线tts合成" id="kee-qs-vUq" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cNZ-4r-0KO"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dtf-V8-Crs"/>
+                        <viewControllerLayoutGuide type="top" id="Lbo-GQ-JOd"/>
+                        <viewControllerLayoutGuide type="bottom" id="PQy-zJ-lBJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tii-vp-09Z">
+                    <view key="view" contentMode="scaleToFill" id="8qo-2w-uH6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LIV-LW-QPC">
-                                <rect key="frame" x="130" y="331" width="153" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="GcO-zv-KCA">
+                                <rect key="frame" x="130.5" y="331" width="153" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlQ-HM-0oD">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTq-lW-13A">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
                                         <state key="normal" title="开始"/>
                                         <connections>
-                                            <action selector="startAction:" destination="kjM-FS-1Dt" eventType="touchUpInside" id="V26-SW-FXq"/>
+                                            <action selector="startAction:" destination="kee-qs-vUq" eventType="touchUpInside" id="U1z-8M-d0D"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL7-gs-zEV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqg-q7-KId">
+                                        <rect key="frame" x="61" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="播放"/>
+                                        <state key="selected" title="暂停"/>
+                                        <connections>
+                                            <action selector="playAction:" destination="kee-qs-vUq" eventType="touchUpInside" id="96Q-lS-NUw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suB-rT-EoB">
                                         <rect key="frame" x="122" y="0.0" width="31" height="30"/>
                                         <state key="normal" title="停止"/>
                                         <connections>
-                                            <action selector="closeAction:" destination="kjM-FS-1Dt" eventType="touchUpInside" id="hJQ-jA-x8r"/>
+                                            <action selector="closeAction:" destination="kee-qs-vUq" eventType="touchUpInside" id="3pX-1R-lky"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="abh-vo-JNk"/>
-                                </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Uu-cz-Qc9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UfI-RS-fNu">
                                 <rect key="frame" x="41" y="63" width="321" height="197"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="197" id="vng-xo-gx4"/>
+                                    <constraint firstAttribute="height" constant="197" id="dD8-3d-jYX"/>
                                 </constraints>
                                 <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
-                                    <outlet property="delegate" destination="kjM-FS-1Dt" id="b6N-nL-ivj"/>
+                                    <outlet property="delegate" destination="kee-qs-vUq" id="h6l-Rw-xTi"/>
                                 </connections>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-Ze-8vk">
+                                <rect key="frame" x="20" y="430" width="374" height="378"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e3N-sg-PwE">
+                                <rect key="frame" x="98.5" y="369" width="217" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO8-gc-IMD">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
+                                        <state key="normal" title="播放进度"/>
+                                        <connections>
+                                            <action selector="currentPlayPosition:" destination="kee-qs-vUq" eventType="touchUpInside" id="Ze8-ZU-a9q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-Wt-cGQ">
+                                        <rect key="frame" x="70" y="0.0" width="77" height="30"/>
+                                        <state key="normal" title="总播放长度"/>
+                                        <connections>
+                                            <action selector="getAudioLength:" destination="kee-qs-vUq" eventType="touchUpInside" id="uP5-5G-3mG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-oL-YbD">
+                                        <rect key="frame" x="155" y="0.0" width="62" height="30"/>
+                                        <state key="normal" title="播放状态"/>
+                                        <connections>
+                                            <action selector="playState:" destination="kee-qs-vUq" eventType="touchUpInside" id="c5T-fK-dmu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LIV-LW-QPC" firstAttribute="leading" secondItem="1hm-Gp-k4O" secondAttribute="leading" constant="130" id="3ev-KW-ZaW"/>
-                            <constraint firstItem="1hm-Gp-k4O" firstAttribute="trailing" secondItem="0Uu-cz-Qc9" secondAttribute="trailing" constant="52" id="84O-xi-tLW"/>
-                            <constraint firstItem="0Uu-cz-Qc9" firstAttribute="leading" secondItem="1hm-Gp-k4O" secondAttribute="leading" constant="41" id="BAE-64-97j"/>
-                            <constraint firstItem="1hm-Gp-k4O" firstAttribute="trailing" secondItem="LIV-LW-QPC" secondAttribute="trailing" constant="131" id="Mfa-YB-0Mn"/>
-                            <constraint firstItem="0Uu-cz-Qc9" firstAttribute="top" secondItem="cNZ-4r-0KO" secondAttribute="bottom" constant="19" id="txx-CV-9Pn"/>
-                            <constraint firstItem="LIV-LW-QPC" firstAttribute="top" secondItem="0Uu-cz-Qc9" secondAttribute="bottom" constant="71" id="yjN-pf-XQ1"/>
+                            <constraint firstItem="GcO-zv-KCA" firstAttribute="centerX" secondItem="8qo-2w-uH6" secondAttribute="centerX" id="27M-YZ-Ndo"/>
+                            <constraint firstItem="e3N-sg-PwE" firstAttribute="top" secondItem="GcO-zv-KCA" secondAttribute="bottom" constant="8" id="5Yk-hI-CCg"/>
+                            <constraint firstItem="49h-yS-wmu" firstAttribute="trailing" secondItem="UfI-RS-fNu" secondAttribute="trailing" constant="52" id="BGd-4Z-lNq"/>
+                            <constraint firstItem="1Il-Ze-8vk" firstAttribute="leading" secondItem="49h-yS-wmu" secondAttribute="leading" constant="20" id="BRD-m5-Bf5"/>
+                            <constraint firstItem="PQy-zJ-lBJ" firstAttribute="top" secondItem="1Il-Ze-8vk" secondAttribute="bottom" constant="54" id="Eyr-fd-387"/>
+                            <constraint firstItem="1Il-Ze-8vk" firstAttribute="top" secondItem="e3N-sg-PwE" secondAttribute="bottom" constant="31" id="F5f-rm-ozg"/>
+                            <constraint firstItem="UfI-RS-fNu" firstAttribute="top" secondItem="Lbo-GQ-JOd" secondAttribute="bottom" constant="19" id="LdG-A5-QVF"/>
+                            <constraint firstItem="UfI-RS-fNu" firstAttribute="leading" secondItem="49h-yS-wmu" secondAttribute="leading" constant="41" id="XdF-Sv-mOs"/>
+                            <constraint firstItem="GcO-zv-KCA" firstAttribute="top" secondItem="UfI-RS-fNu" secondAttribute="bottom" constant="71" id="adI-5h-90n"/>
+                            <constraint firstItem="e3N-sg-PwE" firstAttribute="centerX" secondItem="8qo-2w-uH6" secondAttribute="centerX" id="xuK-eY-BSe"/>
+                            <constraint firstItem="49h-yS-wmu" firstAttribute="trailing" secondItem="1Il-Ze-8vk" secondAttribute="trailing" constant="20" id="z5P-zU-pwc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="1hm-Gp-k4O"/>
+                        <viewLayoutGuide key="safeArea" id="49h-yS-wmu"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="在线" image="person.fill" catalog="system" selectedImage="person.fill" id="Yoe-ky-13y"/>
-                    <navigationItem key="navigationItem" id="1FM-qA-77X"/>
+                    <tabBarItem key="tabBarItem" title="在线" image="person.fill" catalog="system" selectedImage="person.fill" id="gc6-p3-Ji6"/>
+                    <navigationItem key="navigationItem" id="vJj-dD-yCy"/>
                     <connections>
-                        <outlet property="textView" destination="0Uu-cz-Qc9" id="HFn-uH-MxJ"/>
+                        <outlet property="displayTextView" destination="1Il-Ze-8vk" id="825-LT-FSA"/>
+                        <outlet property="playButton" destination="uqg-q7-KId" id="fDJ-Wx-9zA"/>
+                        <outlet property="textView" destination="UfI-RS-fNu" id="PGL-Eh-n81"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hPw-di-xTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gil-FQ-HWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3200.0000000000005" y="17.410714285714285"/>
         </scene>

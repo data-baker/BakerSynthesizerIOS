@@ -34,8 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置语音的音调，取值0-9，不传时默认为5中语调
 @property(nonatomic,copy)NSString * pitch;
 
+/// 设置语音的rate，取值0-9，不传时默认为5中语调
+@property(nonatomic,assign)DBTTSRate rate;
 ///  根据类型指定audioType
 @property(nonatomic,assign)DBTTSAudioType audioType;
+
 
 ///// 私有化部署的服务器url地址。
 //@property(nonatomic,copy)NSString * url;

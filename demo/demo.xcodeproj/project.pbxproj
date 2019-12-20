@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3545F3132397A3D6003BBE92 /* NLSPlayAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3545F3112397A3D6003BBE92 /* NLSPlayAudio.mm */; };
-		35712D98239906C200531B2D /* DBFlowTTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35712D97239906C200531B2D /* DBFlowTTS.framework */; };
+		3514B14723ACD66800F8DB74 /* DBFlowTTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3514B14623ACD66800F8DB74 /* DBFlowTTS.framework */; };
 		35EA440E2393BFBD006E83F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EA440D2393BFBD006E83F6 /* AppDelegate.m */; };
 		35EA44112393BFBD006E83F6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EA44102393BFBD006E83F6 /* SceneDelegate.m */; };
 		35EA44142393BFBD006E83F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EA44132393BFBD006E83F6 /* ViewController.m */; };
@@ -19,9 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3545F3112397A3D6003BBE92 /* NLSPlayAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NLSPlayAudio.mm; sourceTree = "<group>"; };
-		3545F3122397A3D6003BBE92 /* NLSPlayAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSPlayAudio.h; sourceTree = "<group>"; };
-		35712D97239906C200531B2D /* DBFlowTTS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBFlowTTS.framework; sourceTree = "<group>"; };
+		3514B14623ACD66800F8DB74 /* DBFlowTTS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBFlowTTS.framework; sourceTree = "<group>"; };
 		35EA44092393BFBD006E83F6 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EA440C2393BFBD006E83F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35EA440D2393BFBD006E83F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -41,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35712D98239906C200531B2D /* DBFlowTTS.framework in Frameworks */,
+				3514B14723ACD66800F8DB74 /* DBFlowTTS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +64,7 @@
 		35EA440B2393BFBD006E83F6 /* demo */ = {
 			isa = PBXGroup;
 			children = (
-				35712D97239906C200531B2D /* DBFlowTTS.framework */,
+				3514B14623ACD66800F8DB74 /* DBFlowTTS.framework */,
 				35EA440C2393BFBD006E83F6 /* AppDelegate.h */,
 				35EA440D2393BFBD006E83F6 /* AppDelegate.m */,
 				35EA440F2393BFBD006E83F6 /* SceneDelegate.h */,
@@ -75,8 +72,6 @@
 				35EA44122393BFBD006E83F6 /* ViewController.h */,
 				35EA44132393BFBD006E83F6 /* ViewController.m */,
 				35EA44152393BFBD006E83F6 /* Main.storyboard */,
-				3545F3122397A3D6003BBE92 /* NLSPlayAudio.h */,
-				3545F3112397A3D6003BBE92 /* NLSPlayAudio.mm */,
 				35EA44182393BFC1006E83F6 /* Assets.xcassets */,
 				35EA441A2393BFC1006E83F6 /* LaunchScreen.storyboard */,
 				35EA441D2393BFC1006E83F6 /* Info.plist */,
@@ -155,7 +150,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3545F3132397A3D6003BBE92 /* NLSPlayAudio.mm in Sources */,
 				35EA44142393BFBD006E83F6 /* ViewController.m in Sources */,
 				35EA440E2393BFBD006E83F6 /* AppDelegate.m in Sources */,
 				35EA441F2393BFC1006E83F6 /* main.m in Sources */,
