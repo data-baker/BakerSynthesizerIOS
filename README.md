@@ -4,14 +4,14 @@
 ## 1.XCode集成Framework（参考demo） 
 
 
-1. 将framework添加到项目project的目录下面。
-1. 在viewController中引用SDK的头文件；
+1.将framework添加到项目project的目录下面。
+2.在viewController中引用SDK的头文件；
 ```
 #import <DBFlowTTS/DBSynthesizerManager.h>// 合成器的头文件
 #import <DBFlowTTS/DBSynthesisPlayer.h> //合成播放器的头文件
 ```
 
-1. 实例化DBSynthesisPlayer相关：
+3.实例化DBSynthesisPlayer相关：
 先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
 
 ```
@@ -21,7 +21,9 @@
     self.synthesizerManager.synthesisDataPlayer = self.synthesisDataPlayer;
 
 ```
+
 4.在代理的回调中处理相关的逻辑，播放控制或数据相关;
+
 
 ## 2.SDK关键类
 
@@ -94,7 +96,7 @@
 |readlyToPlay|	播放器准备就绪	|此时可以通过播放器的start方法进行播放|
 |playFinished|	播放完成|	播放结束回调|
 |playPausedIfNeed|	播放暂停|	播放暂停回调|
-|playResumeIfNeed|	播放继续|	播放继续回调|
+|playResumeIfNeed|	播放开始|	播放开始回调|
 |updateBufferPositon|	更新播放buffer进度|	更新播放器buffer进度回调|
 |onSynthesisStarted	|开始合成	|开始合成|
 |onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
