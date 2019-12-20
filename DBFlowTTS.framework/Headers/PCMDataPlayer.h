@@ -11,7 +11,6 @@
 #import "DBTTSEnumerate.h"
 #import "DBFailureModel.h"
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol DBPCMPlayDelegate <NSObject>
@@ -32,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 -  (void)updateBufferPositon:(float)bufferPosition;
 
 /// 播放错误的回调
-- (void)palyerCallBackFaiure:(DBFailureModel *)failureModel;
+- (void)playerCallBackFaiure:(DBFailureModel *)failureModel;
 
 
 @end
@@ -44,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 音频长度
 @property(nonatomic,assign)NSInteger audioLength;
-
 
 @property(nonatomic,weak)id <DBPCMPlayDelegate> delegate;
 /// 当前的播放状态
@@ -59,8 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign,getter=isPausePlayIfNeed)BOOL pausePlayIfNeed;
 
 /// 初始化sdk
-/// @param audioTyp 传入audioType
-- (instancetype)initWithType:(DBTTSAudioType)audioTyp;
+/// @param audioType 传入audioType
+- (instancetype)initWithType:(DBTTSAudioType)audioType;
 
 /// 开始播放
 - (void)startPlay;

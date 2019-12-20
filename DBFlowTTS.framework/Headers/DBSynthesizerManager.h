@@ -10,7 +10,7 @@
 #import "DBSynthesizerRequestParam.h"
 #import "DBFailureModel.h"
 #import "PCMDataPlayer.h"
-
+@class DBSynthesisPlayer;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 合成失败 返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"}
 - (void)onTaskFailed:(DBFailureModel *)failreModel;
 
+
 @end
 
 @interface DBSynthesizerManager : NSObject
@@ -48,7 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///超时时间,默认30s
 @property(nonatomic,assign)NSInteger  timeOut;
 
-@property(nonatomic,strong)PCMDataPlayer * pcmDataPlayer;
+@property(nonatomic,strong)DBSynthesisPlayer * synthesisDataPlayer;
+
+//@property(nonatomic,strong)DBSynthesisPlayer * synthesisPlayer;
 
 /// 1:打印日志 0：不打印日志,默认不打印日志
 @property(nonatomic,assign,getter=islog)BOOL log;

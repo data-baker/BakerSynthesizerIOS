@@ -12,7 +12,6 @@
 typedef NS_ENUM(NSUInteger, DBTTSAudioType){
     DBTTSAudioTypePCM16K=4, // 返回16K采样率的pcm格式
     DBTTSAudioTypePCM8K, // 返回8K采样率的pcm格式
-    DBTTSAudioTypeWAV16K //返回16K采样率的wav格式,audiotype=6&rate=1 ：返回8K的wav格式
 };
 
 typedef NS_ENUM(NSUInteger, DBTTSRate) {

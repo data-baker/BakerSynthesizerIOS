@@ -45,7 +45,8 @@
     _synthesizerManager = [DBSynthesizerManager instance];
     //设置打印日志
      _synthesizerManager.log = NO;
-    [_synthesizerManager setupClientId:@"e2d17fce-f69a-4b78-bbe5-7fef824a77c2" clientSecret:@"ZTZlOTMyMzAtMThlZS00M2ZjLWJhMTktYTQ2NjBhZTE3Yzk0"];
+    // TODO:请联系标贝科技公司获取
+    [_synthesizerManager setupClientId:@"" clientSecret:@""];
     // 设置播放器
     _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
     _synthesisDataPlayer.delegate = self;
@@ -63,8 +64,6 @@
         _synthesizerPara = [[DBSynthesizerRequestParam alloc]init];
     }
     _synthesizerPara.audioType = DBTTSAudioTypePCM16K;
-    // 设置播放器的audioType
-    _synthesisDataPlayer.audioType = _synthesizerPara.audioType;
     _synthesizerPara.text = self.textView.text;
     _synthesizerPara.voice = @"标准合成_模仿儿童_果子";
     // 设置合成参数
@@ -77,7 +76,6 @@
 - (IBAction)closeAction:(id)sender {
     // 停止合成
     [self.synthesizerManager stop];
-    // 重置播放器状态
     [self resetPlayState];
     self.displayTextView.text = @"";
 
