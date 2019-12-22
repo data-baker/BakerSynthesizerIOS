@@ -10,8 +10,10 @@
 #import <DBFlowTTS/DBSynthesizerManager.h>// 合成器的头文件
 #import <DBFlowTTS/DBSynthesisPlayer.h> //合成播放器的头文件
 ```
+1. 实例化DBSynthesizerManager；
+  实例化DBSynthesizerManager对象，包含设置clientId和clientSecret（可以设置是否log日志，默认为NO)
 
-3.实例化DBSynthesisPlayer相关：
+1. 实例化DBSynthesisPlayer;(如果不需要播放器功能，此步骤可忽略)
 先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
 
 ```
@@ -19,10 +21,9 @@
     _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
     _synthesisDataPlayer.delegate = self;
     self.synthesizerManager.synthesisDataPlayer = self.synthesisDataPlayer;
-
 ```
 
-4.在代理的回调中处理相关的逻辑，播放控制或数据相关;
+5.在代理的回调中处理相关的逻辑，播放控制或数据相关;
 
 
 ## 2.SDK关键类
@@ -35,17 +36,14 @@
 
 ## 3.调用说明
 1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例。
-1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不设置该player，那么回调播放器相关的逻辑将不会执行,这时候只需处理合成相关的回调，即DBSynthesizerManager的回调）**
+1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不需要播放功能，此步可忽略；直接处理DBSynthesizerManager的回调数据即可）**
 1. 设置DBSynthesizerRequestParam合成参数，包括必填参数和非必填参数
 1. 调用DBSynthesizerManager.start()方法开始与云端服务连接；
-1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；
+1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；**（如果不需要palyer功能，无需释放播放器资源）**
 
 ```
 播放器说明：
 属性：
-
-/// 设置audioType类型，默认为DBTTSAudioTypePCM16K,无需设置，会和设置合成参数的audioType保持一致
-@property(nonatomic,assign)DBTTSAudioType  audioType;
 /// 合成播放器的回调者
 @property(nonatomic,weak)id <DBSynthesisPlayerDelegate> delegate;
 /// 当前的播放进度
@@ -57,7 +55,6 @@
 @property(nonatomic,assign,readonly,getter=isPlayerPlaying)BOOL playerPlaying;
 
 控制相关：
-// 初始化播放器，audioType;包含16k，和8k两张采样率
 - (void)startPlay; // 开始播放
 - (void)pausePlay; //暂停播放
 - (void)stopPlay; // 停止播放
