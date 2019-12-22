@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/DBSynthesisPlayer.h</key>
 		<data>
-		Rzn60nuKtPo6weZxZ505D3dCyHw=
+		NWLQ7AaCWBrUaeg3v8n1emUhcZg=
 		</data>
 		<key>Headers/DBSynthesizerManager.h</key>
 		<data>
-		HKCt0ivuiu1T64PIrC+HHKeHnmc=
+		L5Ukm4uT53KZmr5XR2xVBbwOyUI=
 		</data>
 		<key>Headers/DBSynthesizerRequestParam.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/PCMDataPlayer.h</key>
 		<data>
-		nFD5BWFbcWQmuHKIsQYwroU7Bpo=
+		7A3RJMp0wGqh3hlCPginLn7Rpms=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -50,22 +50,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Rzn60nuKtPo6weZxZ505D3dCyHw=
+			NWLQ7AaCWBrUaeg3v8n1emUhcZg=
 			</data>
 			<key>hash2</key>
 			<data>
-			yVbQSLkjC1HHubi+xYLUzL7QxD9qS7UlIpizLV/SB98=
+			tG12HjFff5FgG5ANXAOL1NeDVebg/vt6SQq14M6BDHs=
 			</data>
 		</dict>
 		<key>Headers/DBSynthesizerManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HKCt0ivuiu1T64PIrC+HHKeHnmc=
+			L5Ukm4uT53KZmr5XR2xVBbwOyUI=
 			</data>
 			<key>hash2</key>
 			<data>
-			PVOf+SCarFevgnWme8ZVyycf+NVx4CjeSNuEozq8v8I=
+			ixjtz0HRvboj6XQziZG9YN/FxTEIqazOuCggcAak5vs=
 			</data>
 		</dict>
 		<key>Headers/DBSynthesizerRequestParam.h</key>
@@ -94,11 +94,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nFD5BWFbcWQmuHKIsQYwroU7Bpo=
+			7A3RJMp0wGqh3hlCPginLn7Rpms=
 			</data>
 			<key>hash2</key>
 			<data>
-			nsUTditgxBxW9dH+f3WrFE+VEzHiL5DnsuAo0YzghVY=
+			LyW1ipISsL9DVGMxnFcCUYsyuEuoJTD3SwZHYa+vZik=
 			</data>
 		</dict>
 	</dict>

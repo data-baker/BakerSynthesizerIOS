@@ -50,7 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 是否准备好开始播放
 @property(nonatomic,assign,getter=isReadyToPlay)BOOL readyToPlay;
-/// 是否全部播放完成
+
+/// 是否缓存完成
 @property(nonatomic,assign,getter=isFinished)BOOL finished;
 
 /// 播放的过程中因为数据不足而暂停
