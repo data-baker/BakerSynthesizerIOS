@@ -5,6 +5,7 @@
 
 
 1.将framework添加到项目project的目录下面。
+
 2.在viewController中引用SDK的头文件；
 ```
 #import <DBFlowTTS/DBSynthesizerManager.h>// 合成器的头文件
