@@ -4,16 +4,16 @@
 ## 1.XCode集成Framework（参考demo） 
 
 
-1. 将framework添加到项目project的目录下面。
-1. 在viewController中引用SDK的头文件；
+1.将framework添加到项目project的目录下面。
+2.在viewController中引用SDK的头文件；
 ```
 #import <DBFlowTTS/DBSynthesizerManager.h>// 合成器的头文件
 #import <DBFlowTTS/DBSynthesisPlayer.h> //合成播放器的头文件
 ```
-1. 实例化DBSynthesizerManager；
-  实例化DBSynthesizerManager对象，包含设置clientId和clientSecret（可以设置是否log日志，默认为NO)
+3.实例化DBSynthesizerManager；
+实例化DBSynthesizerManager对象，包含设置clientId和clientSecret**（可以设置是否log日志，默认为NO)**
 
-1. 实例化DBSynthesisPlayer;(如果不需要播放器功能，此步骤可忽略)
+4.实例化DBSynthesisPlayer;**(如果不需要播放器功能，此步骤可忽略)**
 先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
 
 ```
