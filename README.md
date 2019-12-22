@@ -13,6 +13,7 @@
 ```
 3.实例化DBSynthesizerManager；
 实例化DBSynthesizerManager对象，包含设置clientId和clientSecret；**（可以设置是否log日志，默认为NO)**
+**本sdk提供两种功能，1:处理在线合成的功能，以下称为合成功能；2.处理在线合成+播放器功能，以下统一称为播放器功能；**
 
 4.实例化DBSynthesisPlayer；**(如果不需要播放器功能，此步骤可忽略)**
 先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
@@ -29,17 +30,17 @@
 ## 2.SDK关键类
 
 1. DBSynthesizerManager.h：语音合成关键业务处理类，全局只需一个实例即可,并且需要注册自己为该类的回调对象；
-1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调；**（如果要使用该player需要将该player赋值给DBSynthesizerManager的实例持有；如果不使用该player那么不需要实例化该类，直接使用DBSynthesizerManager进行合成即可，不会带来播放器相关的开销）**
+1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调；**（如果使用播放器功能需要将该player赋值给DBSynthesizerManager的实例持有；如果不使用该player那么不需要实例化该类，直接使用DBSynthesizerManager进行合成即可，不会带来播放器相关的开销）**
 1. DBSynthesizerRequestParam.h：设置合成需要的相关参数，按照如下的接口文档设置即可；
 1. DBFailureModel.h：请求异常的回调类，包含错误码，错误信息，和错误的trace_id；
 1. DBTTSEnumerate.h：sdk全局的枚举类；
 
 ## 3.调用说明
 1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例
-1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不需要播放功能，此步可忽略；直接处理DBSynthesizerManager的回调数据即可）**
+1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不需要播放器功能，此步可忽略；直接处理DBSynthesizerManager的回调数据即可）**
 1. 设置DBSynthesizerRequestParam合成参数，包括必填参数和非必填参数
 1. 调用DBSynthesizerManager.start()方法开始与云端服务连接
-1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；**（如果不需要palyer功能，无需释放播放器资源）**
+1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；**（如果不需要播放器功能，无需释放播放器资源）**
 
 ```
 播放器说明：
@@ -68,7 +69,7 @@
 |  clientId  |  clientId | 是|初始化sdk的clientId    |
 |clientSecret|	clientSecret|	是|	初始化sdk的clientSecret|
 |setText	|合成文本	|是	|设置要转为语音的合成文本|
-|setDelegate|	数据回调方法|	是	|DBSynthesizerDelegate，DBSynthesisPlayerDelegate，只注册一个即可，需要播放器注册DBSynthesisPlayerDelegate。需要合成注册DBSynthesizerDelegate|
+|setDelegate|	数据回调方法|	是	|DBSynthesizerDelegate，DBSynthesisPlayerDelegate，只注册一个即可，需要播放器功能注册DBSynthesisPlayerDelegate。需要合成功能注册DBSynthesizerDelegate|
 |setVoice	|发音人	|是	|设置发音人声音名称，默认：标准合成_模仿儿童_果子|
 |setLanguage|	合并文本语言类型|	否	|合成请求文本的语言，目前支持ZH(中文和中英混)和ENG(纯英文，中文部分不会合成),默认：ZH
 |setSpeed	|语速	|否|	设置播放的语速，在0～9之间（支持浮点值），不传时默认为5
@@ -96,7 +97,7 @@
 |playFinished|	播放完成|	播放结束回调|
 |playPausedIfNeed|	播放暂停|	播放暂停回调|
 |playResumeIfNeed|	播放开始|	播放开始回调|
-|updateBufferPositon|	更新播放buffer进度|	更新播放器buffer进度回调|
+|updateBufferPositon|	更新播放器缓存进度|	更新播放器缓存进度回调|
 |onSynthesisStarted	|开始合成	|开始合成|
 |onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
 |onSynthesisCompleted|	合成完成	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
