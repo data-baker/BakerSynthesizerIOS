@@ -4,7 +4,7 @@
 ## 1.XCode集成Framework（参考demo） 
 
 
-1.将framework添加到项目project的目录下面。
+1.将framework添加到项目project的目录下面；
 
 2.在viewController中引用SDK的头文件；
 ```
@@ -12,9 +12,9 @@
 #import <DBFlowTTS/DBSynthesisPlayer.h> //合成播放器的头文件
 ```
 3.实例化DBSynthesizerManager；
-实例化DBSynthesizerManager对象，包含设置clientId和clientSecret**（可以设置是否log日志，默认为NO)**
+实例化DBSynthesizerManager对象，包含设置clientId和clientSecret；**（可以设置是否log日志，默认为NO)**
 
-4.实例化DBSynthesisPlayer;**(如果不需要播放器功能，此步骤可忽略)**
+4.实例化DBSynthesisPlayer；**(如果不需要播放器功能，此步骤可忽略)**
 先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
 
 ```
@@ -24,22 +24,22 @@
     self.synthesizerManager.synthesisDataPlayer = self.synthesisDataPlayer;
 ```
 
-5.在代理的回调中处理相关的逻辑，播放控制或数据相关;
+5.在代理的回调中处理相关的逻辑，播放控制或数据相关；**（注册回调说明：DBSynthesizerDelegate，DBSynthesisPlayerDelegate，只注册一个即可，需要播放器注册DBSynthesisPlayerDelegate。需要合成注册DBSynthesizerDelegate）**
 
 
 ## 2.SDK关键类
 
 1. DBSynthesizerManager.h：语音合成关键业务处理类，全局只需一个实例即可,并且需要注册自己为该类的回调对象；
-1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调,**（如果要使用该player需要将该player赋值给DBSynthesizerManager的实例持有；如果不使用该player那么不需要实例化该类，直接使用DBSynthesizerManager进行合成即可，不会带来播放器相关的开销）**
+1. DBSynthesisPlayer.h 合成播放器类，这里包含播放器的状态回调以及合成数据的回调；**（如果要使用该player需要将该player赋值给DBSynthesizerManager的实例持有；如果不使用该player那么不需要实例化该类，直接使用DBSynthesizerManager进行合成即可，不会带来播放器相关的开销）**
 1. DBSynthesizerRequestParam.h：设置合成需要的相关参数，按照如下的接口文档设置即可；
-1. DBFailureModel.h：请求异常的回调类，包含错误码，错误信息，和错误的trace_id。
+1. DBFailureModel.h：请求异常的回调类，包含错误码，错误信息，和错误的trace_id；
 1. DBTTSEnumerate.h：sdk全局的枚举类；
 
 ## 3.调用说明
-1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例。
+1. 初始化DBSynthesizerManager类，得到DBSynthesizerManager的实例
 1. 实例化DBSynthesisPlayer类，将实例对象给DBSynthesizerManager的实例对象持有，就可以处理播放器相关的回调资源；**（如果不需要播放功能，此步可忽略；直接处理DBSynthesizerManager的回调数据即可）**
 1. 设置DBSynthesizerRequestParam合成参数，包括必填参数和非必填参数
-1. 调用DBSynthesizerManager.start()方法开始与云端服务连接；
+1. 调用DBSynthesizerManager.start()方法开始与云端服务连接
 1. 在业务完全处理完毕，或者页面关闭时，调DBSynthesizerManager.stop结束websocket服务，释放资源，调用synthesisDataPlayer的stop，释放播放器相关资源，并处理相关的UI状态；**（如果不需要palyer功能，无需释放播放器资源）**
 
 ```
@@ -63,12 +63,15 @@
 
 ## 4.参数说明
 ### 4.1基本参数说明
+
 | 参数 | 参数名称 |是否必填|说明|
 |--------|--------|--------|--------|
 |  clientId  |  clientId | 是|初始化sdk的clientId    |
 |clientSecret|	clientSecret|	是|	初始化sdk的clientSecret|
 |setText	|合成文本	|是	|设置要转为语音的合成文本|
-|setBakerCallback|	数据回调方法|	是	|设置返回数据的callback|
+|DBSynthesizerDelegate|	数据回调方法|	是	|设置返回数据的callback|
+|DBSynthesisPlayerDelegate|	数据回调方法|	是	|设置播放器的callback|
+
 |setVoice	|发音人	|是	|设置发音人声音名称，默认：标准合成_模仿儿童_果子|
 |setLanguage|	合并文本语言类型|	否	|合成请求文本的语言，目前支持ZH(中文和中英混)和ENG(纯英文，中文部分不会合成),默认：ZH
 |setSpeed	|语速	|否|	设置播放的语速，在0～9之间（支持浮点值），不传时默认为5
@@ -78,7 +81,7 @@
 
 
 ### 4.2 DBSynthesizerDelegate 回调类方法说明
-(如果使用播放功能，可以不处理该协议，播放器的delegate会回调相关数据)
+
 
 | 参数 | 参数名称 |说明|
 |--------|--------|--------|
