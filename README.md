@@ -83,8 +83,9 @@
 | 参数 | 参数名称 |说明|
 |--------|--------|--------|
 |onSynthesisStarted	|开始合成	|开始合成|
+|onPrepared	|合成返回第一帧数据	|合成返回第一帧数据|
 |onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
-|onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
+|onSynthesisCompleted|	合成完成	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
 |onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
 
 ### 4.3 DBSynthesisPlayerDelegate 回调类方法说明
@@ -98,7 +99,7 @@
 |updateBufferPositon|	更新播放buffer进度|	更新播放器buffer进度回调|
 |onSynthesisStarted	|开始合成	|开始合成|
 |onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
-|onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
+|onSynthesisCompleted|	合成完成	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
 |onTaskFailed	|合成失败和播放失败的回调	|返回错误码和错误信息，如果是合成器错误会返回traceId|
 
 ### 4.4失败时返回的code对应表
