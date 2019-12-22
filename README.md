@@ -24,8 +24,7 @@
     self.synthesizerManager.synthesisDataPlayer = self.synthesisDataPlayer;
 ```
 
-5.在代理的回调中处理相关的逻辑，播放控制或数据相关；**（注册回调说明：DBSynthesizerDelegate，DBSynthesisPlayerDelegate，只注册一个即可，需要播放器注册DBSynthesisPlayerDelegate。需要合成注册DBSynthesizerDelegate）**
-
+5.在代理的回调中处理相关的逻辑，播放控制或数据相关；
 
 ## 2.SDK关键类
 
@@ -69,9 +68,7 @@
 |  clientId  |  clientId | 是|初始化sdk的clientId    |
 |clientSecret|	clientSecret|	是|	初始化sdk的clientSecret|
 |setText	|合成文本	|是	|设置要转为语音的合成文本|
-|DBSynthesizerDelegate|	数据回调方法|	是	|设置返回数据的callback|
-|DBSynthesisPlayerDelegate|	数据回调方法|	是	|设置播放器的callback|
-
+|setDelegate|	数据回调方法|	是	|DBSynthesizerDelegate，DBSynthesisPlayerDelegate，只注册一个即可，需要播放器注册DBSynthesisPlayerDelegate。需要合成注册DBSynthesizerDelegate|
 |setVoice	|发音人	|是	|设置发音人声音名称，默认：标准合成_模仿儿童_果子|
 |setLanguage|	合并文本语言类型|	否	|合成请求文本的语言，目前支持ZH(中文和中英混)和ENG(纯英文，中文部分不会合成),默认：ZH
 |setSpeed	|语速	|否|	设置播放的语速，在0～9之间（支持浮点值），不传时默认为5
@@ -102,7 +99,7 @@
 |onSynthesisStarted	|开始合成	|开始合成|
 |onBinaryReceived|流式持续返回数据的接口回调|data 合成的音频数据;audioType  音频类型，如pcm。interval  音频interval信息，可能为空，endFlag  是否时最后一个数据块，false：否，true：是|
 |onSynthesisCompleted|	合成完成。	|当onBinaryReceived方法中endFlag参数=true，即最后一条消息返回后，会回调此方法。|
-|onTaskFailed	|合成失败	|返回msg内容格式为：{"code":40000,"message":"…","trace_id":" 1572234229176271"} trace_id是引擎内部合成任务ID。|
+|onTaskFailed	|合成失败和播放失败的回调	|返回错误码和错误信息，如果是合成器错误会返回traceId|
 
 ### 4.4失败时返回的code对应表
 #### 4.4.1失败时返回的msg格式
