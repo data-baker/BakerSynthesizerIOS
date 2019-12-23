@@ -11,7 +11,7 @@
 #import <DBFlowTTS/DBSynthesisPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
- NSString * textViewText = @"很久以前，在波斯国的某城市里住着兄弟俩，哥哥叫戈西母，弟弟叫阿里巴巴。父亲去世后，他俩各自分得了有限的一点财产，分家自立，各谋生路。不久银财便花光了，生活日益艰难。为了解决吃穿，糊口度日，兄弟俩不得不日夜奔波，吃苦耐劳。　后来戈西母幸运地与一个富商的女儿结了婚，他继承了岳父的产业，开始走上做生意的道路。由于生意兴隆，发展迅速，戈西母很快就成为远近闻名的大富商了。　阿里巴巴娶了一个穷苦人家的女儿，夫妻俩过着贫苦的生活。全部家当除了一间破屋外，就只有三匹毛驴。阿里巴巴靠卖柴禾为生，每天赶着毛驴去丛林中砍柴，再驮到集市去卖，以此维持生活。";
+ NSString * textViewText = @"您好，欢迎体验标贝语音服务";
 ;
 
 @interface ViewController ()<DBSynthesisPlayerDelegate,UITextViewDelegate>
@@ -129,7 +129,7 @@
 
 }
 - (void)onBinaryReceivedData:(NSData *)data audioType:(DBTTSAudioType)audioType interval:(NSString *)interval endFlag:(BOOL)endFlag {
-    [self appendLogMessage:@"收到合成回调的数据"];
+//    [self appendLogMessage:@"收到合成回调的数据"];
 }
 
 - (void)onTaskFailed:(DBFailureModel *)failreModel  {
