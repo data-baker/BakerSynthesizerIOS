@@ -8,21 +8,29 @@
 		<data>
 		yYMdEyRKm7/c6xxH966h8k0fclk=
 		</data>
+		<key>Headers/DBSynthesisPlayer.h</key>
+		<data>
+		NWLQ7AaCWBrUaeg3v8n1emUhcZg=
+		</data>
 		<key>Headers/DBSynthesizerManager.h</key>
 		<data>
-		PgCEcWwnN8ONoAuSBhD6KoStEBU=
+		L5Ukm4uT53KZmr5XR2xVBbwOyUI=
 		</data>
 		<key>Headers/DBSynthesizerRequestParam.h</key>
 		<data>
-		02yuSh/M/9RXIAN/hFD56h+6JIA=
+		DCh/2f/O3oJlyUyefZFIKrRaGng=
 		</data>
 		<key>Headers/DBTTSEnumerate.h</key>
 		<data>
-		QpEdyidObKmDoYCXQ1CBbXCTk5A=
+		hVAUjqo2X6QCOtaxerhN2jtZm40=
+		</data>
+		<key>Headers/PCMDataPlayer.h</key>
+		<data>
+		7A3RJMp0wGqh3hlCPginLn7Rpms=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		jCdUP0bXJWiP5TiMyj8w9+tuAVE=
+		lIio1RPDshZa/J+slWH+UolE/6w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -38,37 +46,59 @@
 			QfIJFPwd12afvvwqpKW+cHJ5liYLPM/BPV49ZTQUKbw=
 			</data>
 		</dict>
+		<key>Headers/DBSynthesisPlayer.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NWLQ7AaCWBrUaeg3v8n1emUhcZg=
+			</data>
+			<key>hash2</key>
+			<data>
+			tG12HjFff5FgG5ANXAOL1NeDVebg/vt6SQq14M6BDHs=
+			</data>
+		</dict>
 		<key>Headers/DBSynthesizerManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PgCEcWwnN8ONoAuSBhD6KoStEBU=
+			L5Ukm4uT53KZmr5XR2xVBbwOyUI=
 			</data>
 			<key>hash2</key>
 			<data>
-			6rAwpMbtj1988b/5YGy3yJ+XZ+LSoi438QfhFikgB9E=
+			ixjtz0HRvboj6XQziZG9YN/FxTEIqazOuCggcAak5vs=
 			</data>
 		</dict>
 		<key>Headers/DBSynthesizerRequestParam.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			02yuSh/M/9RXIAN/hFD56h+6JIA=
+			DCh/2f/O3oJlyUyefZFIKrRaGng=
 			</data>
 			<key>hash2</key>
 			<data>
-			GW5g5phu4BUdv0K3FDykbmy7uFVJlyOBwQtxLI9QbsU=
+			g2ov3Gu5PPvE8IFXJ5oQSMS5QiQYJdzb30cel7JIfbk=
 			</data>
 		</dict>
 		<key>Headers/DBTTSEnumerate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QpEdyidObKmDoYCXQ1CBbXCTk5A=
+			hVAUjqo2X6QCOtaxerhN2jtZm40=
 			</data>
 			<key>hash2</key>
 			<data>
-			DpakWHLRf8PU9DafKlzNJvrFZ4MQj8ZssnIc9ifMIVI=
+			J/9Unx769jNgsBhARRQgMDqhCfPG4vt0EgWZI6GUkOw=
+			</data>
+		</dict>
+		<key>Headers/PCMDataPlayer.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7A3RJMp0wGqh3hlCPginLn7Rpms=
+			</data>
+			<key>hash2</key>
+			<data>
+			LyW1ipISsL9DVGMxnFcCUYsyuEuoJTD3SwZHYa+vZik=
 			</data>
 		</dict>
 	</dict>

@@ -12,7 +12,6 @@
 typedef NS_ENUM(NSUInteger, DBTTSAudioType){
     DBTTSAudioTypePCM16K=4, // 返回16K采样率的pcm格式
     DBTTSAudioTypePCM8K, // 返回8K采样率的pcm格式
-    DBTTSAudioTypeWAV16K //返回16K采样率的wav格式,audiotype=6&rate=1 ：返回8K的wav格式
 };
 
 typedef NS_ENUM(NSUInteger, DBTTSRate) {
@@ -31,6 +30,7 @@ typedef NS_ENUM(NSUInteger,DBErrorFailedCode) {
     DBErrorFailedCodeParameters = 90003, // 参数格式错误
     DBErrorFailedCodeResultParse = 90004, // 返回结果解析错误
     DBErrorFailedCodeSynthesis = 90005, // 合成失败，失败信息相关错误
+    DBPlayerError = 90006, // 播放器相关错误
     //**********服务端返回的错误*********//
     DBErrorFailedCodeAccessToken = 10001, // access_token参数获取失败或未传输
     DBErrorFailedCodeDomin = 10002, //domain参数值错误
