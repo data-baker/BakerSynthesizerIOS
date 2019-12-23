@@ -184,8 +184,7 @@
 }
 
 - (void)onTaskFailed:(DBFailureModel *)failreModel  {
-    NSLog(@"失败 %@",failreModel);
-//    [self appendLogMessage:@"合成失败"];
+    [self appendLogMessage:[NSString stringWithFormat:@"合成失败%@",failreModel.message]];
 }
 
 
