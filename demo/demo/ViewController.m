@@ -43,8 +43,8 @@
     [self addBorderOfView:self.displayTextView];
     self.textView.text = textViewText;
     _synthesizerManager = [DBSynthesizerManager instance];
-    //设置打印日志
-     _synthesizerManager.log = NO;
+    //设置打印日志,默认为NO
+     _synthesizerManager.log = YES;
     // TODO:请联系标贝科技公司获取
 //    [_synthesizerManager setupClientId:@"" clientSecret:@""];
     // 设置播放器
@@ -65,6 +65,7 @@
     }
     _synthesizerPara.audioType = DBTTSAudioTypePCM16K;
     _synthesizerPara.text = self.textView.text;
+    // TODO: 请联系标贝科技公司获取
     _synthesizerPara.voice = @"标准合成_模仿儿童_果子";
     // 设置合成参数
     NSInteger code = [self.synthesizerManager setSynthesizerParams:self.synthesizerPara];
