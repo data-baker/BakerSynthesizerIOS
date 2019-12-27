@@ -46,7 +46,7 @@
     //设置打印日志,默认为NO
      _synthesizerManager.log = YES;
     // TODO:请联系标贝科技公司获取
-    [_synthesizerManager setupClientId:@"" clientSecret:@""];
+//    [_synthesizerManager setupClientId:@"" clientSecret:@""];
     // 设置播放器
     _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
     _synthesisDataPlayer.delegate = self;
