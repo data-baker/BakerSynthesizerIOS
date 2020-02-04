@@ -11,8 +11,7 @@
 #import <DBFlowTTS/DBSynthesisPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
- NSString * textViewText = @"标贝（北京）科技有限公司专注于智能语音交互，包括语音合成整体解决方案，并提供语音合成、语音识别、图像识别等人工智能数据服务。帮助客户实现数据价值，以推动技术、应用和产业的创新。帮助企业盘活大数据资源，挖掘数据中有价值的信息  。主要提供智能语音交互相关服务，包括语音合成整体解决方案，以及语音合成、语音识别、图像识别等人工智能数据服务。 标贝科技在范围内有数据采集、处理团队，可以满足在不同地区收集数据的需求。以语音数据为例，可采集、加工普通话、英语、粤语、日语、韩语及方言等各类数据，以支持客户进行语音合成或者语音识别系统的研发工作";
-;
+NSString * textViewText = @"标贝（北京）科技有限公司专注于智能语音交互，包括语音合成整体解决方案，并提供语音合成、语音识别、图像识别等人工智能数据服务。帮助客户实现数据价值，以推动技术、应用和产业的创新。帮助企业盘活大数据资源，挖掘数据中有价值的信息  。主要提供智能语音交互相关服务，包括语音合成整体解决方案，以及语音合成、语音识别、图像识别等人工智能数据服务。 标贝科技在范围内有数据采集、处理团队，可以满足在不同地区收集数据的需求。以语音数据为例，可采集、加工普通话、英语、粤语、日语、韩语及方言等各类数据，以支持客户进行语音合成或者语音识别系统的研发工作";
 
 @interface ViewController ()<DBSynthesisPlayerDelegate,UITextViewDelegate>
 /// 合成管理类
@@ -46,7 +45,7 @@
     //设置打印日志,默认为NO
      _synthesizerManager.log = YES;
     // TODO:请联系标贝科技公司获取
-//    [_synthesizerManager setupClientId:@"" clientSecret:@""];
+    [_synthesizerManager setupClientId:@"" clientSecret:@""];
     // 设置播放器
     _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
     _synthesisDataPlayer.delegate = self;
