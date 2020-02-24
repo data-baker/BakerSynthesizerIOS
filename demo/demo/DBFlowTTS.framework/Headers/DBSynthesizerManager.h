@@ -61,11 +61,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setupClientId:(NSString *)clientId clientSecret:(NSString *)clientSecret;
 
+// 近针对私有化授权的服务使用，调用此方法后无需设置clientIf和clientSecret
+- (void)setupDefaultToken;
 
 /**
  * @brief 设置SynthesizerRequestParam对象参数,返回值为0,表示设置参数成功
  */
 -(NSInteger)setSynthesizerParams:(DBSynthesizerRequestParam *)requestParam;
+
 
 /// 开始合成
 - (void)start;
