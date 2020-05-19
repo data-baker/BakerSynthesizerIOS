@@ -55,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 1:打印日志 0：不打印日志,默认不打印日志
 @property(nonatomic,assign,getter=islog)BOOL log;
 
+@property(nonatomic,copy)NSString * ttsSdkVersion;
+
 
 + (DBSynthesizerManager *)instance;
 
@@ -62,8 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setupClientId:(NSString *)clientId clientSecret:(NSString *)clientSecret;
 
 // 近针对私有化授权的服务使用，调用此方法后无需设置clientIf和clientSecret
-- (void)setupDefaultToken;
-
+- (void)setupPrivateDeploymentURL:(NSString *)url;
 /**
  * @brief 设置SynthesizerRequestParam对象参数,返回值为0,表示设置参数成功
  */
@@ -74,6 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)start;
 ///  停止合成
 - (void)stop;
+
 
 @end
 

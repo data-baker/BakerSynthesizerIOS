@@ -45,8 +45,9 @@ NSString * textViewText = @"标贝（北京）科技有限公司专注于智能�
     //设置打印日志,默认为NO
      _synthesizerManager.log = YES;
     // TODO:请联系标贝科技公司获取
-    [_synthesizerManager setupClientId:@"" clientSecret:@""];
-
+     //TODO: 如果使用私有化部署,按如下方式设置URL,否则设置setupClientId：clientSecret：的方法进行授权
+//    [_synthesizerManager setupPrivateDeploymentURL:@"default"];
+//    [_synthesizerManager setupClientId:@"" clientSecret:@""];
     // 设置播放器
     _synthesisDataPlayer = [[DBSynthesisPlayer alloc]init];
     _synthesisDataPlayer.delegate = self;

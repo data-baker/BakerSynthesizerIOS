@@ -12,8 +12,8 @@
 #import <DBFlowTTS/DBSynthesisPlayer.h> //合成播放器的头文件
 ```
 3.实例化DBSynthesizerManager；
-实例化DBSynthesizerManager对象，包含设置clientId和clientSecret；**（可以设置是否log日志，默认为NO)**
-**本sdk提供两种功能，1:处理在线合成的功能，以下称为合成功能；2.处理在线合成+播放器功能，以下统一称为播放器功能；**
+实例化DBSynthesizerManager对象，设置授权信息：**a.)公有化设置clientId和clientSecret；b.)私有化设置url;具体可参考demo；**（可以设置是否log日志，默认为NO)
+备注：**本sdk提供两种功能，1:处理在线合成的功能，以下称为合成功能；2.处理在线合成+播放器功能，以下统一称为播放器功能；**
 
 4.实例化DBSynthesisPlayer；**(如果不需要播放器功能，此步骤可忽略)**
 先实例化DBSynthesisPlayer对象并传给DBSynthesizerManager的实例持有，该类包含播放相关的控制协议，您可以注册成为该播放控制协议的代理，然后在代理方法中处理播放器的相关状态；
